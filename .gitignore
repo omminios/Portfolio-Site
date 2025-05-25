@@ -1,0 +1,159 @@
+################################################################################
+# WordPress Core
+################################################################################
+# Ignore all WordPress core files and directories at the root.
+# We assume you are managing WordPress core updates separately (e.g., via WP-CLI or auto-updates).
+# If you are forking WordPress core and want to track changes to it, you would remove these.
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-config-sample.php # Keep this UNLESS you want to commit your own sample
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+/.htaccess
+
+# IMPORTANT: WordPress Configuration File
+# NEVER commit your live wp-config.php file.
+# Create it on the server or use environment variables.
+# If you have a wp-config-local.php for local dev, that's fine to ignore too.
+/wp-config.php
+/wp-config-local.php
+
+################################################################################
+# WordPress Content (wp-content)
+################################################################################
+# General wp-content ignores
+/wp-content/backups/
+/wp-content/backup-db/
+/wp-content/blogs.dir/
+/wp-content/cache/
+/wp-content/debug.log
+/wp-content/languages/ # Often managed by WordPress core or plugins, unless you have custom .po/.mo files
+/wp-content/upgrade/
+/wp-content/uploads/ # User-generated content, typically very large. Better to store on S3 or similar.
+/wp-content/wflogs/ # Wordfence logs
+/wp-content/wp-rocket-config/ # WP Rocket config
+
+# Advanced Custom Fields local JSON (if you use it for field group sync)
+# You might WANT to commit this if you use it for versioning your ACF field groups.
+# /wp-content/themes/your-theme-name/acf-json/
+# /wp-content/plugins/your-plugin-name/acf-json/
+
+# Specific plugin or theme caches/data you don't want to track
+# /wp-content/plugins/some-plugin/cache/
+# /wp-content/themes/your-theme/cache/
+
+# WordPress Must-Use Plugins (mu-plugins)
+# Usually, you want to commit these as they are critical.
+# If you have specific mu-plugins you generate or don't want to track, list them:
+# /wp-content/mu-plugins/generated-plugin.php
+
+# WordPress Plugins
+# OPTION 1: If you manage plugins with Composer (recommended), ignore the whole directory.
+# Your composer.json and composer.lock will define your plugins.
+# /wp-content/plugins/
+# OPTION 2: If you commit all plugins (e.g., free ones from .org and premium/custom).
+# In this case, DON'T ignore /wp-content/plugins/.
+# You might still want to ignore specific plugins if they are very large or have their own repos:
+# /wp-content/plugins/some-large-plugin/
+# /wp-content/plugins/plugin-with-its-own-repo/
+
+# WordPress Themes
+# You will almost certainly want to commit your active theme(s).
+# Ignore default WordPress themes if you don't use or customize them.
+/wp-content/themes/twenty*/
+# Ignore other themes you don't use.
+# /wp-content/themes/some-other-theme/
+# If you use a parent theme and a child theme, commit both.
+
+################################################################################
+# General Ignores
+################################################################################
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editor specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject/
+*.project
+.project # Eclipse
+.buildpath # Eclipse
+.settings/ # Eclipse
+
+# Log and Temp files
+*.log
+*.tmp
+*.temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment configuration files
+.env
+.env.local
+.env.*.local
+!.env.example # It's good practice to commit an example env file
+
+# Node modules / Build files (if you use them for theme/plugin development)
+node_modules/
+build/
+dist/
+# package-lock.json # Consider committing if your team needs exact dep versions
+# yarn.lock # Consider committing if your team needs exact dep versions
+
+# PHP Project Files
+composer.phar
+composer.lock # Usually committed to ensure consistent dependencies
+vendor/ # If using Composer, dependencies are installed here
+
+# PHPCS ruleset (if you use them)
+phpcs.xml
+phpcs.xml.dist
+phpcs.ruleset.xml
+
+# Server Config Files (usually server-specific)
+.htaccess # Often server-specific, manage on the server or use environment-specific versions.
+nginx.conf
+
+# Backup Files
+*.bak
+*.swo
+*.swp
+*~
+
+# SQL Dumps (should not be in the repo)
+*.sql
+*.sql.gz
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# WP-CLI
+wp-cli.yml # If it contains sensitive info or local paths
+.wp-cli/cache/
+
+# Other common tools
+.vagrant/
+Homestead.yaml
+Homestead.json
